@@ -3,6 +3,7 @@ import { CheckCircle, EyeOff, Sparkles } from 'lucide-react'
 import { FadeIn } from '../shared/FadeIn'
 import { Container } from '../ui/Container'
 import { H2, H3, P } from '../ui/Typography'
+import { Section } from '../layout/Section'
 import { invisibleTechnology } from '../../data/invisibleTechnology'
 
 const iconMap = {
@@ -17,7 +18,7 @@ export function InvisibleTechnology() {
     icon: iconMap[featureItem.icon],
   }))
   return (
-    <section className="py-24 lg:py-32">
+    <Section className="py-24 lg:py-32">
       <Container>
         <div className="max-w-3xl mx-auto text-center mb-16">
           <FadeIn>
@@ -67,6 +68,6 @@ export function InvisibleTechnology() {
           </FadeIn>
         </div>
       </Container>
-    </section>
+    </Section>
   )
 }

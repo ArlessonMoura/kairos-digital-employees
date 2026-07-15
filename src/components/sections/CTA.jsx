@@ -3,11 +3,12 @@ import { ArrowRight, Check } from 'lucide-react'
 import { Button } from '../ui/Button'
 import { Container } from '../ui/Container'
 import { H2, P, Text } from '../ui/Typography'
+import { Section } from '../layout/Section'
 import { cta } from '../../data/cta'
 
 export function CTA() {
   return (
-    <section id="cta" className="py-24 lg:py-32">
+    <Section id="cta" className="py-24 lg:py-32">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -55,6 +56,6 @@ export function CTA() {
           </motion.div>
         </motion.div>
       </Container>
-    </section>
+    </Section>
   )
 }

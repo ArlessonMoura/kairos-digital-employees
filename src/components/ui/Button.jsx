@@ -53,7 +53,7 @@ export function Button({
         }}
       />
       {/* Gradient overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/10 to-transparent" />
       <span className="relative z-10">{children}</span>
     </motion.button>
   )

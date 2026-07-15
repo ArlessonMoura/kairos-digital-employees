@@ -4,6 +4,7 @@ import { FadeIn } from '../shared/FadeIn'
 import { Container } from '../ui/Container'
 import { Grid } from '../ui/Grid'
 import { H2, H3, P } from '../ui/Typography'
+import { Section } from '../layout/Section'
 import { howItWorks } from '../../data/howItWorks'
 
 const iconMap = {
@@ -19,7 +20,7 @@ export function HowItWorks() {
   }))
 
   return (
-    <section id="how-it-works" className="py-24 lg:py-32">
+    <Section id="how-it-works" className="py-24 lg:py-32">
       <Container>
         <div className="max-w-3xl mx-auto text-center mb-16">
           <FadeIn>
@@ -71,6 +72,6 @@ export function HowItWorks() {
           ))}
         </Grid>
       </Container>
-    </section>
+    </Section>
   )
 }

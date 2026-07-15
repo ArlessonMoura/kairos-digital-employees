@@ -3,6 +3,7 @@ import { Check, Shield, Target, Zap } from 'lucide-react'
 import { FadeIn } from '../shared/FadeIn'
 import { Container } from '../ui/Container'
 import { H2, H3, P, Text } from '../ui/Typography'
+import { Section } from '../layout/Section'
 import { solution } from '../../data/solution'
 
 const iconMap = {
@@ -19,7 +20,7 @@ export function Solution() {
   }))
 
   return (
-    <section className="py-24 lg:py-32">
+    <Section className="py-24 lg:py-32">
       <Container>
         <div className="max-w-3xl mx-auto text-center mb-16">
           <FadeIn>
@@ -77,6 +78,6 @@ export function Solution() {
           </motion.div>
         </FadeIn>
       </Container>
-    </section>
+    </Section>
   )
 }

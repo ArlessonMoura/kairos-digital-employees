@@ -5,10 +5,11 @@ import { FadeIn } from '../shared/FadeIn'
 import { Container } from '../ui/Container'
 import { Grid } from '../ui/Grid'
 import { H2, H3, P } from '../ui/Typography'
+import { Section } from '../layout/Section'
 
 export function Benefits() {
   return (
-    <section id="benefits" className="py-24 lg:py-32 bg-surface-light dark:bg-surface-dark">
+    <Section id="benefits" className="py-24 lg:py-32 bg-surface-light dark:bg-surface-dark">
       <Container>
         <div className="max-w-3xl mx-auto text-center mb-16">
           <FadeIn>
@@ -55,6 +56,6 @@ export function Benefits() {
           })}
         </Grid>
       </Container>
-    </section>
+    </Section>
   )
 }

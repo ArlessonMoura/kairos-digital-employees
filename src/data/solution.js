@@ -1,6 +1,7 @@
 export const solution = {
   heading: 'A solução é simples',
-  description: 'Funcionários Digitais que trabalham enquanto você descansa. Nunca esquecem, nunca erram, nunca param.',
+  description:
+    'Funcionários Digitais que trabalham enquanto você descansa. Nunca esquecem, nunca erram, nunca param.',
   cta: {
     text: 'Simples assim',
     icon: 'Check',
@@ -9,7 +10,8 @@ export const solution = {
     {
       icon: 'Zap',
       title: 'Implementação Rápida',
-      description: 'Em 48 horas seus funcionários digitais já estão trabalhando.',
+      description:
+        'À partir de 48 horas seus funcionários digitais já estão trabalhando.',
     },
     {
       icon: 'Target',
@@ -22,4 +24,4 @@ export const solution = {
       description: 'Sem contratos de fidelidade. Cancele quando quiser.',
     },
   ],
-}
+};

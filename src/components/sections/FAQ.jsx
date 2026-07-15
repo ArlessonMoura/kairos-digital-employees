@@ -5,12 +5,13 @@ import { faq } from '../../data/faq'
 import { FadeIn } from '../shared/FadeIn'
 import { Container } from '../ui/Container'
 import { H2, P, Text } from '../ui/Typography'
+import { Section } from '../layout/Section'
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState(null)
 
   return (
-    <section id="faq" className="py-24 lg:py-32 bg-surface-light dark:bg-surface-dark">
+    <Section id="faq" className="py-24 lg:py-32 bg-surface-light dark:bg-surface-dark">
       <Container>
         <div className="max-w-3xl mx-auto text-center mb-16">
           <FadeIn>
@@ -74,6 +75,6 @@ export function FAQ() {
           ))}
         </div>
       </Container>
-    </section>
+    </Section>
   )
 }

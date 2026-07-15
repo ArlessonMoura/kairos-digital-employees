@@ -3,12 +3,13 @@ import { H2, P } from '../ui/Typography'
 import { BentoGrid, BentoItem } from '../ui/Grid'
 import { AnimatedCard } from '../shared/AnimatedCard'
 import { FadeIn } from '../shared/FadeIn'
+import { Section } from '../layout/Section'
 import { employees } from '../../data/employees'
 import { digitalEmployees } from '../../data/digitalEmployees'
 
 export function DigitalEmployees() {
   return (
-    <section id="employees" className="py-24 lg:py-56 bg-surface-light dark:bg-surface-dark">
+    <Section id="employees" className="py-24 lg:py-56 bg-surface-light dark:bg-surface-dark">
       <Container>
         <div className="max-w-3xl mx-auto text-center mb-16">
           <FadeIn>
@@ -29,6 +30,6 @@ export function DigitalEmployees() {
           ))}
         </BentoGrid>
       </Container>
-    </section>
+    </Section>
   )
 }
