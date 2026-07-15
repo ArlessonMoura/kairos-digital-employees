@@ -154,7 +154,7 @@ export function Hero() {
   }, []);
 
   return (
-    <Section className="relative flex items-center justify-center min-h-screen overflow-hidden">
+    <Section className="relative flex items-center justify-center overflow-hidden min-h-dvh">
       <AnimatedBackground />
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -220,14 +220,18 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative z-10 h-[500px] flex items-center justify-center overflow-hidden">
+            <div className="relative z-10 h-[min(500px,65vh)] flex items-center justify-center overflow-hidden">
               <motion.div
-                className="relative w-full max-w-sm"
+                className="relative w-full w-[90vw]"
                 style={{ perspective: '1000px' }}
                 animate={{ y: [0, -1, 0], rotateX: [0, 0.15, 0] }}
                 transition={{
-                  y:       { duration: CONTAINER_DUR, repeat: Infinity, ease: 'easeInOut' },
-                  rotateX: { duration: CONTAINER_DUR, repeat: Infinity, ease: 'easeInOut' },
+                  y: { duration: CONTAINER_DUR, repeat: Infinity, ease: 'easeInOut' },
+                  rotateX: {
+                    duration: CONTAINER_DUR,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  },
                 }}
               >
                 {activities.map((activity, index) => {
@@ -238,9 +242,10 @@ export function Hero() {
                   );
                   const style = getCardStyle(relative);
                   const isActive = relative === 0;
-                  
+
                   // Compute chronological timestamp relative to the active card's timeline
-                  const stepsPast = (currentIndex - index + activities.length) % activities.length;
+                  const stepsPast =
+                    (currentIndex - index + activities.length) % activities.length;
                   const offset = TIME_OFFSETS[stepsPast] || 0;
                   const cardTime = getPastTime(currentTime, offset);
 
@@ -248,24 +253,24 @@ export function Hero() {
                     <motion.div
                       key={index}
                       animate={{
-                        y:       style.y,
-                        x:       style.x,
-                        scale:   style.scale,
+                        y: style.y,
+                        x: style.x,
+                        scale: style.scale,
                         opacity: style.opacity,
-                        filter:  `blur(${style.blur}px) brightness(${style.brightness})`,
-                        zIndex:  style.zIndex,
+                        filter: `blur(${style.blur}px) brightness(${style.brightness})`,
+                        zIndex: style.zIndex,
                         rotateX: style.rotateX,
                         rotateZ: style.rotateZ,
                       }}
                       transition={{
                         // x uses a lighter spring → settles ahead of y → arc trajectory
-                        x:       SPRING_X,
-                        y:       SPRING_CARD,
-                        scale:   SPRING_CARD,
+                        x: SPRING_X,
+                        y: SPRING_CARD,
+                        scale: SPRING_CARD,
                         opacity: SPRING_CARD,
                         rotateX: SPRING_CARD,
                         rotateZ: SPRING_CARD,
-                        filter:  SPRING_CARD,
+                        filter: SPRING_CARD,
                       }}
                       style={{
                         pointerEvents: style.opacity > 0.05 ? 'auto' : 'none',
@@ -273,7 +278,7 @@ export function Hero() {
                         left: 0,
                         right: 0,
                         top: '50%',
-                        marginTop: '-50px', // Centers cards vertically relative to the y=0 line
+                        transform: 'translateY(-50%)', // Centers cards vertically relative to the y=0 line
                       }}
                     >
                       {/* Glow — always mounted; breathes when active, silent when not */}
@@ -288,15 +293,23 @@ export function Hero() {
                           isActive
                             ? {
                                 opacity: [GLOW_MIN, GLOW_MAX, GLOW_MIN],
-                                scale:   [1, 1.02, 1],
+                                scale: [1, 1.02, 1],
                               }
                             : { opacity: 0, scale: 0.9 }
                         }
                         transition={
                           isActive
                             ? {
-                                opacity: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
-                                scale:   { duration: 3, repeat: Infinity, ease: 'easeInOut' },
+                                opacity: {
+                                  duration: 3,
+                                  repeat: Infinity,
+                                  ease: 'easeInOut',
+                                },
+                                scale: {
+                                  duration: 3,
+                                  repeat: Infinity,
+                                  ease: 'easeInOut',
+                                },
                               }
                             : SPRING_GLOW
                         }
@@ -307,8 +320,8 @@ export function Hero() {
                         animate={
                           isActive
                             ? {
-                                y:       [0, -ACTIVE_Y, 0],
-                                scale:   [1, ACTIVE_SCALE, 1],
+                                y: [0, -ACTIVE_Y, 0],
+                                scale: [1, ACTIVE_SCALE, 1],
                                 rotateZ: [0, ACTIVE_ROT, 0, -ACTIVE_ROT, 0],
                               }
                             : { y: 0, scale: 1, rotateZ: 0 }
@@ -316,9 +329,21 @@ export function Hero() {
                         transition={
                           isActive
                             ? {
-                                y:       { duration: ACTIVE_DUR,       repeat: Infinity, ease: 'easeInOut' },
-                                scale:   { duration: ACTIVE_DUR * 1.2, repeat: Infinity, ease: 'easeInOut' },
-                                rotateZ: { duration: ACTIVE_DUR * 1.5, repeat: Infinity, ease: 'easeInOut' },
+                                y: {
+                                  duration: ACTIVE_DUR,
+                                  repeat: Infinity,
+                                  ease: 'easeInOut',
+                                },
+                                scale: {
+                                  duration: ACTIVE_DUR * 1.2,
+                                  repeat: Infinity,
+                                  ease: 'easeInOut',
+                                },
+                                rotateZ: {
+                                  duration: ACTIVE_DUR * 1.5,
+                                  repeat: Infinity,
+                                  ease: 'easeInOut',
+                                },
                               }
                             : SPRING_FLOAT
                         }
